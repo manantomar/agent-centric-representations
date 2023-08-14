@@ -7,7 +7,7 @@ The code contains implementations of two algorithms
 
 # Installation
 
-The provided `requirements.txt` file contains all main dependencies required to run this code. You will also need to download the offline datasets from [v-d4rl paper](https://drive.google.com/drive/folders/15HpW6nlJexJP5A4ygGk-1plqt9XdcWGI) or (depending on which kinds of distractors you want to test with) from the [ACRO paper](https://drive.google.com/drive/folders/1HsksquQ6gKQUDj_1Qe7dc-R_h8m6A1H3) and have them in `./vd4rl` path.
+The provided `requirements.txt` file contains all main dependencies required to run this code (tested on `Python 3.8`). You will also need to download the offline datasets from [v-d4rl paper](https://drive.google.com/drive/folders/15HpW6nlJexJP5A4ygGk-1plqt9XdcWGI) or (depending on which kinds of distractors you want to test with) from the [ACRO paper](https://drive.google.com/drive/folders/1HsksquQ6gKQUDj_1Qe7dc-R_h8m6A1H3) and have them in `./vd4rl` path.
 
 # Running
 

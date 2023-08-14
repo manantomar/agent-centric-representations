@@ -1,0 +1,10 @@
+hydra-core==1.1.0
+numpy==1.21.0
+torch==1.10.0
+dm-env==1.3
+dm-control==0.0.364896371
+termcolor==1.1.0
+opencv-python==4.1.2.30
+imageio==2.9.0
+hydra-submitit-launcher==1.0.1
+matplotlib==3.2.1

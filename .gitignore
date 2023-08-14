@@ -1,0 +1,9 @@
+vd4rl/
+drqv2_data/
+results/
+*.png
+__pycache__/
+runs/
+*.pyc
+*.sh
+notes.txt

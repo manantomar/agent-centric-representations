@@ -1,0 +1,66 @@
+defaults:
+  - _self_
+  - task@_global_: offline_dmc
+  - algo@_global_: acro
+  - override hydra/launcher: submitit_local
+
+dist_level: hard # only used for cleaner log names
+
+# task settings
+frame_stack: 3
+action_repeat: 2
+discount: 0.99
+distracting_mode: null
+# train settings
+num_seed_frames: 4000
+pretrain_num_frames: 30000
+# eval
+eval_every_frames: 5000
+num_eval_episodes: 10
+eval_on_distracting: False
+eval_on_multitask: False
+eval_save_vid_every_step: 100000
+# snapshot
+save_snapshot: False
+# replay buffer
+replay_buffer_size: 1_000_000
+replay_buffer_num_workers: 1
+nstep: 3
+batch_size: 256
+# misc
+seed: 1
+device: cuda
+save_video: True
+save_train_video: False
+use_tb: False
+# experiment
+experiment: exp
+# agent
+lr: 1e-4
+feature_dim: 256
+# offline
+offline: False
+bc_weight: 2.5
+use_bc: True
+# cql
+cql_importance_sample: False
+temp: 1.0
+min_q_weight: 1.0
+num_random: 10
+with_lagrange: False
+lagrange_thresh: 0.0
+
+hydra:
+  run:
+     dir: results/${experiment}/${task_name}/${dist_level}_seed-${seed}
+  sweep:
+    dir: ./exp/${now:%Y.%m.%d}/${now:%H%M}_${agent_cfg.experiment}
+    subdir: ${hydra.job.num}
+  launcher:
+    timeout_min: 900
+    cpus_per_task: 10
+    gpus_per_node: 1
+    tasks_per_node: 1
+    mem_gb: 160
+    nodes: 1
+    submitit_folder: ./exp/${now:%Y.%m.%d}/${now:%H%M%S}_${agent_cfg.experiment}/.slurm
